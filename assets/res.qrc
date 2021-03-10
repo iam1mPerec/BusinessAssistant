@@ -1,0 +1,34 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>search.svg</file>
+        <file>cancel.png</file>
+        <file>down_arrow.png</file>
+        <file>up_arrow.png</file>
+        <file>time.png</file>
+        <file>name.png</file>
+        <file>today.png</file>
+        <file>submit.png</file>
+        <file>print.png</file>
+        <file>ELiD.jpg</file>
+    </qresource>
+    <qresource prefix="/date">
+        <file>vacation_plus.png</file>
+        <file>vacation.png</file>
+        <file>work.png</file>
+        <file>work_plus.png</file>
+        <file>event.png</file>
+    </qresource>
+    <qresource prefix="/window-icons">
+        <file>person.png</file>
+        <file>haus.png</file>
+        <file>assistant.png</file>
+        <file>options.png</file>
+        <file>bell.png</file>
+        <file>calendar.png</file>
+        <file>doc.png</file>
+        <file>printer.png</file>
+        <file>img.png</file>
+        <file>table.png</file>
+        <file>main.png</file>
+    </qresource>
+</RCC>

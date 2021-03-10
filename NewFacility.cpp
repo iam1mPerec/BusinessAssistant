@@ -1,17 +1,19 @@
 #include <iostream>
-#include <string>
 #include <QCommonStyle>
-#include <QMessageBox>
+#include <QTextEdit>
+#include <QDebug>
 #include "NewFacility.h"
 #include "NewDocument.h"
+#include "ViewDocument.h"
+#include "CustomListitem.h"
 #include "facility.h"
 #include "document.h"
+#include "statics.h"
 #include "ui_NewFacility.h"
-#include <QTextEdit>
 
 using namespace std;
 
-NewFacility::NewFacility(Facility &TempFacility, QWidget *parent) :
+NewFacility::NewFacility(Facility* TempFacility, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::NewFacility),
     facility(TempFacility)
@@ -19,9 +21,53 @@ NewFacility::NewFacility(Facility &TempFacility, QWidget *parent) :
     ui->setupUi(this);
 }
 
-NewFacility::~NewFacility()
+void NewFacility::on_addDocument_clicked()
 {
-    delete ui;
+    Document* tempDocument = new Document(facility->getID(), "facilities");
+    NewDocument window(tempDocument, this);
+    window.setModal(true);
+    window.exec();
+
+    if(tempDocument->getName().isEmpty()) {
+        delete tempDocument;
+        cout<<"Document Was NOT created\n";
+    }
+    else {
+        facility->addDocument(tempDocument);
+        CustomListitem* Document = new CustomListitem(tempDocument->getName(), facility->getID() ,this);
+        Document->setCheckable(true);
+        ui->Documents->addItem(Document);
+    }
+}
+
+void NewFacility::on_save_clicked()
+{
+    if(isValidText(ui->Name) && isValidText(ui->Address) && isValidText(ui->Town) && isValidText(ui->Zip) && isValidText(ui->Owner) && facility->hasFirm()) {
+        facility->setName(ui->Name->text());
+        facility->setAddress(ui->Address->text());
+        facility->setTown(ui->Town->text());
+        facility->setZip(ui->Zip->text());
+        facility->setOwner(ui->Owner->text());
+        facility->setMaxWorkers((ui->MaxWorkers->text().toInt()));
+        accept();
+    }
+}
+
+void NewFacility::on_viewDocument_clicked()
+{
+    long long id = ui->Documents->getSelectedItemID();
+    if(id != CustomListWidget::invalidID) {
+        for(auto document : facility->getDocuments()) {
+            if(facility->getID() == id) {
+                ViewDocument window(document, this);
+                window.setModal(true);
+                window.exec();
+            }
+        }
+    }
+    else {
+        qDebug() << "Something went wrong!";
+    }
 }
 
 void NewFacility::on_cansel_clicked()
@@ -29,44 +75,17 @@ void NewFacility::on_cansel_clicked()
     this->close();
 }
 
-void NewFacility::on_addDocument_clicked()
+NewFacility::~NewFacility()
 {
-    Document tempDocument;
-    NewDocument window(tempDocument);
-    window.setModal(true);
-    window.exec();
-    if(tempDocument.getName().empty()) {
-        cout<<"Document Was NOT created\n";
-    }
-    else {
-        cout<<"Document Was created\n";
-    }
+    delete ui;
 }
 
-void NewFacility::on_save_clicked()
+void NewFacility::on_RB_ELID_clicked()
 {
-    if(!ui->TextBoxPhone->text().isEmpty() && !ui->TextBoxAddress->text().isEmpty()) {
-        cout<<"Saved fine \n";
-    }
-    else {
+    facility->setFirm(Firm::ELID);
+}
 
-        if(ui->TextBoxPhone->text().isEmpty()) {
-            ui->TextBoxPhone->setStyleSheet("QTextEdit{border: 2px solid red;}");
-        }
-        if(ui->TextBoxAddress->text().isEmpty()) {
-            ui->TextBoxAddress->setStyleSheet("QTextEdit{border: 2px solid red;}");
-        }
-    }
-
-//    if(!ui->TextBoxPhone->text().isEmpty() && !ui->TextBoxAddress->text().isEmpty()) {
-//        string phone   = ui->TextBoxPhone->text().toStdString();
-//        string address = ui->TextBoxAddress->text().toStdString();
-//        facility.setPhone(ui->TextBoxPhone->text().toStdString());
-//        facility.setAddress(ui->TextBoxAddress->text().toStdString());
-//        cout<<"Saved fine \n";
-//        this->close();
-//    }
-//    else {
-//        QMessageBox::warning(this, "Ошибка при заполнении" ,"Нужно заполнить Адрес и Телефон");
-//    }
+void NewFacility::on_RB_ELID_SP_clicked()
+{
+    facility->setFirm(Firm::ELID_SP);
 }

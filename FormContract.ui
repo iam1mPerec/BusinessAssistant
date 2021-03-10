@@ -1,0 +1,1087 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>FormContract</class>
+ <widget class="QDialog" name="FormContract">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>962</width>
+    <height>840</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="assets/res.qrc">
+    <normaloff>:/window-icons/doc.png</normaloff>:/window-icons/doc.png</iconset>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <item>
+    <widget class="QScrollArea" name="scrollArea">
+     <property name="lineWidth">
+      <number>1</number>
+     </property>
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>789</width>
+        <height>5589</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <widget class="QWidget" name="Print" native="true">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <family>Times New Roman,Times,serif</family>
+           <pointsize>-1</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: white; font-family: &quot;Times New Roman&quot;, Times, serif; font-size: 24px;</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_9">
+            <item>
+             <widget class="QLabel" name="ELiD">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>350</width>
+                <height>200</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>350</width>
+                <height>200</height>
+               </size>
+              </property>
+              <property name="baseSize">
+               <size>
+                <width>0</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="pixmap">
+               <pixmap resource="assets/res.qrc">:/icons/ELiD.jpg</pixmap>
+              </property>
+              <property name="scaledContents">
+               <bool>true</bool>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QLabel" name="ELiD_SP">
+            <property name="font">
+             <font>
+              <family>Times New Roman,Times,serif</family>
+              <pointsize>-1</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>ELID SP</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_2">
+            <property name="font">
+             <font>
+              <family>Times New Roman,Times,serif</family>
+              <pointsize>-1</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>ARBEITSVERTRAG</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_4">
+            <property name="styleSheet">
+             <string notr="true">margin: 15px 0;</string>
+            </property>
+            <property name="text">
+             <string>Zwischen </string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="EditableSelection" name="FirmPH" native="true">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>27</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="EditableLine" name="NamePH_Boss" native="true">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>27</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="EditableLine" name="AddressPH_Boss" native="true">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>27</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="EditableLine" name="ZipTownPH_Boss" native="true">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>27</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_6">
+            <property name="font">
+             <font>
+              <family>Times New Roman,Times,serif</family>
+              <pointsize>-1</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>im Folgenden „&lt;b&gt;Arbeitgeber“&lt;/b&gt; genannt </string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_7">
+            <property name="font">
+             <font>
+              <family>Times New Roman,Times,serif</family>
+              <pointsize>-1</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">margin: 15px 0;</string>
+            </property>
+            <property name="text">
+             <string>und</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="EditableLine" name="SexPH" native="true">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>27</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="EditableLine" name="NamePH" native="true">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>27</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="EditableLine" name="AddressPH" native="true">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>27</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="EditableLine" name="ZipTownPH" native="true">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>27</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_8">
+            <property name="font">
+             <font>
+              <family>Times New Roman,Times,serif</family>
+              <pointsize>-1</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;im Folgenden „&lt;span style=&quot; font-weight:600;&quot;&gt;Arbeitnehmer“&lt;/span&gt; genannt &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_3">
+            <property name="text">
+             <string>wird folgender Arbeitsvertrag geschlossen: 
+</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_9">
+            <property name="font">
+             <font>
+              <family>Times New Roman,Times,serif</family>
+              <pointsize>-1</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>&lt;b&gt;&lt;u&gt;§ 1 Beginn und Beendigung des Arbeitsverhältnisses&lt;/b&gt;&lt;/u&gt;</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_2">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="label_10">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string>1. Das Arbeitsverhältnis beginnt am </string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="EditableDate" name="DatePH" native="true">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>200</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_11">
+            <property name="text">
+             <string>Die ersten 6 Monate gelten als Probezeit. Während dieser Zeit kann das Arbeitsverhältnis mit einer Kündigungsfrist von zwei Wochen zum Fünfzehnten oder zum Monatsende gekündigt werden. 
+
+2. Vor Antritt des Arbeitsverhältnisses ist die ordentliche Kündigung ausgeschlossen.
+
+3. Nach Ablauf der Probezeit beträgt die Kündigungsfrist vier Wochen zum 15. oder Ende eines Kalendermonats.
+Die Verlängerung der Kündigungsfristen nach Alter und Beschäftigungsjahr richtet sich nach dem jeweiligen anwendbaren Tarifvertrag und den gesetzlichen Vorschriften. Jede Kündigung bedarf der Schriftform. 
+
+4. Dem / der Arbeitnehmerin kann ohne Einhaltung der Kündigungsfrist gekündigt werden, wenn er/ sie trotz schriftlicher Verwarnung Schwarzarbeit leistet oder im Falle der Arbeitsunfähigkeit einer Erwerbstätigkeit nachgeht. 
+</string>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_12">
+            <property name="font">
+             <font>
+              <family>Times New Roman,Times,serif</family>
+              <pointsize>-1</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>&lt;b&gt;&lt;u&gt;§ 2 Tätigkeit&lt;/b&gt;&lt;/u&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_13">
+            <property name="text">
+             <string>1. Die Arbeitnehmerin wird eingestellt als Sanitärbetreuer/in. Sie wird mit allen einschlägigen Arbeiten nach näherer Anweisung der Betriebsleitung und ihrer Vorgesetzten beschäftigt. 
+
+2. Die Arbeitnehmerin verpflichtet sich, die ihr übertragenen Aufgaben sorgfältig auszuführen.
+</string>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_14">
+            <property name="font">
+             <font>
+              <family>Times New Roman,Times,serif</family>
+              <pointsize>-1</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>&lt;b&gt;&lt;u&gt;§ 3 Zuweisung anderer Tätigkeiten/Versetzungen&lt;/b&gt;&lt;/u&gt;
+</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_15">
+            <property name="text">
+             <string>1. Der Arbeitgeber ist berechtigt, den Arbeitnehmer innerhalb des Betriebes eine andere ihren Fähigkeiten und Kenntnissen entsprechende gleichwertige und gleich bezahlte Tätigkeit zuzuweisen. 
+
+2. Der Arbeitgeber behält sich vor, den Arbeitnehmer innerhalb des gesamten Bundesgebietes und in Österreich, bei Bedarf auch an anderen Orten zu beschäftigen.
+Der Arbeitnehmer verpflichtet sich, die Tätigkeit auch an einem anderen Ort auszuführen.   
+</string>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_16">
+            <property name="font">
+             <font>
+              <family>Times New Roman,Times,serif</family>
+              <pointsize>-1</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>&lt;b&gt;&lt;u&gt;§ 4 Arbeitszeit &lt;/b&gt;&lt;/u&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="sizeConstraint">
+             <enum>QLayout::SetMinAndMaxSize</enum>
+            </property>
+            <item>
+             <widget class="QLabel" name="label_18">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string>1. Die regelmäßige monatliche Arbeitszeit beträgt </string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="EditableLine" name="HoursPH" native="true">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_5">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string> Stunden.</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_17">
+            <property name="text">
+             <string>2. Die Arbeitnehmerin ist verpflichtet, aus dringenden betrieblichen Gründen im Rahmen der gesetzlichen Bestimmungen, Nacht-/Feiertag-/Sonntagsarbeit und vorübergehende Mehr- und Überarbeit zu leisten.
+</string>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_19">
+            <property name="font">
+             <font>
+              <family>Times New Roman,Times,serif</family>
+              <pointsize>-1</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>&lt;b&gt;&lt;u&gt;§ 5 Vergütung &lt;/b&gt;&lt;/u&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_4">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="label_20">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string>1. Die Bruttovergütung beträgt pro Stunde </string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="EditableLine" name="SalaryPH" native="true">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string> €</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_21">
+            <property name="text">
+             <string>2. Die Vergütung der Mehrarbeit, Überstunden und der etwaigen Arbeit an Sonn-und Feiertagen richtet sich nach den anwendbaren tariflichen und gesetzlichen Bestimmungen
+3. Die Vergütung ist jeweils zum 25.  des Folgemonats zu zahlen.
+</string>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_22">
+            <property name="font">
+             <font>
+              <family>Times New Roman,Times,serif</family>
+              <pointsize>-1</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>&lt;b&gt;&lt;u&gt;§ 6 Urlaub&lt;/b&gt;&lt;/u&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_23">
+            <property name="text">
+             <string>1. Der Urlaubsanspruch richtet sich nach tariflichen und gesetzlichen Bestimmungen. 
+
+2. Der Urlaub wird in Abstimmung mit der Arbeitnehmerin von der Unternehmensleitung festgelegt. Jeglicher Urlaubsanspruch entsteht erstmalig nach mehr als dreimonatiger ununterbrochener Betriebszugehörigkeit. Im Eintritts- und Austrittsjahr hat die Arbeitnehmerin, soweit der gesetzliche Mindesturlaub nicht unterschritten wird, für jeden vollen Beschäftigungsmonat im Betrieb Anspruch auf ein Zwölftel des Jahresurlaubs.
+
+3. Der gesamte Urlaub ist grundsätzlich im laufenden Kalenderjahr zu nehmen. Eine Übertragung des Urlaubs auf das nächste Kalenderjahr erfolgt nur, wenn dringende betriebliche oder in der Person des Mitarbeiters liegende Gründe dies rechtfertigen. In diesem Fall muss der Urlaub in den ersten drei Monaten des Folgejahres genommen werden. Andernfalls verfällt er.
+</string>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_24">
+            <property name="font">
+             <font>
+              <family>Times New Roman,Times,serif</family>
+              <pointsize>-1</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>&lt;b&gt;&lt;u&gt;§ 7 Arbeitsversäumnis&lt;/b&gt;&lt;/u&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_25">
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;2. Im Falle einer krankheitsbedingten oder aus sonstigen Gründen veranlassten Arbeitsverhinderung hat der Arbeitnehmer den Arbeitgeber &lt;span style=&quot; font-weight:bold;&quot;&gt;unverzüglich zu informieren&lt;/span&gt;. Ist die Arbeitsverhinderung durch Krankheit verursacht, so ist unverzüglich die Geschäftsführung davon zu unterrichten. Bei Arbeitsunfähigkeit infolge Erkrankung ist der Arbeitgeber innerhalb von &lt;span style=&quot; font-weight:bold;&quot;&gt;2 Tag ab Beginn&lt;/span&gt; der Arbeitsunfähigkeit eine ärztliche Bescheinigung über die Dauer der voraussichtlichen Arbeitsunfähigkeit vorzulegen. Dauert die Arbeitsunfähigkeit länger, als in dieser Bescheinigung angegeben, ist eine neue Bescheinigung innerhalb von &lt;span style=&quot; font-weight:bold;&quot;&gt;2 Tag&lt;/span&gt; vorzulegen. Außerdem muss die Arbeitsunfähigkeit unverzüglich dem Arbeitgeber mitgeteilt werden.&lt;br&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_26">
+            <property name="font">
+             <font>
+              <family>Times New Roman,Times,serif</family>
+              <pointsize>-1</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>&lt;b&gt;&lt;u&gt;§ 8 Pflichten&lt;/b&gt;&lt;/u&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_27">
+            <property name="text">
+             <string>1. Die Arbeitnehmerin verpflichtet sich, ihre Arbeitsanweisungen gewissenhaft zu erfüllen, den dienstlichen Anordnungen nachzukommen und die ihr übertragenen Aufgaben sorgfältig auszuführen.
+
+2. Die Arbeitnehmerin hat über Angelegenheiten der Geschäftsführung und des Betriebes Verschwiegenheit zu bewahren; und zwar auch nach Beendigung des Arbeitsverhältnisses.
+
+
+3. Sämtliche im Zusammenhang mit der dem Arbeitnehmer zugewiesenen Tätigkeit vereinnahmten Gelder, insbesondere Trinkgelder, stehen dem Arbeitgeber in voller Höhe zu. Der Arbeitnehmer verpflichtet sich die eingenommenen Gelder nach Anweisung des Arbeitgebers täglich oder wöchentlich abzuführen.   
+
+4. Die Arbeitnehmerin hat sich auf Verlangen der Geschäftsführung durch dessen Vertrauensarzt oder das Gesundheitsamt bei gegebener Veranlassung auf ihre Arbeitsfähigkeit sowie darauf, ob sie frei von ansteckenden Krankheiten ist, ärztlich untersuchen zu lassen.
+</string>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_28">
+            <property name="font">
+             <font>
+              <family>Times New Roman,Times,serif</family>
+              <pointsize>-1</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>&lt;b&gt;&lt;u&gt;§ 9 Nebentätigkeiten, Wettbewerb&lt;/b&gt;&lt;/u&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_29">
+            <property name="text">
+             <string>1. Nebentätigkeiten, die berechtigte Interessen des Arbeitgebers beeinträchtigen können, sind dem Arbeitgeber vor der Übernahme schriftlich mitzuteilen. Nebentätigkeiten, die derartige Interessen beeinträchtigen, dürfen nur mit schriftlicher Zustimmung des Arbeitgebers ausgeübt werden. 
+
+2. Für die Dauer dieses Vertrages ist der Arbeitnehmerin nicht gestattet, für ein Konkurrenzunternehmen des Betriebes tätig zu werden, sich mittelbar an einem solchen zu beteiligen oder ein solches zu errichten sowie Geschäfte für eigene oder fremde Rechnung auf dem Arbeitsgebiet des Unternehmers zu machen, und zwar in keiner Form, auch nicht freiberuflich.
+</string>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_30">
+            <property name="font">
+             <font>
+              <family>Times New Roman,Times,serif</family>
+              <pointsize>-1</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>&lt;b&gt;&lt;u&gt;§ 10 Vertragsstrafe&lt;/b&gt;&lt;/u&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_34">
+            <property name="text">
+             <string>Der Arbeitnehmer verpflichtet sich für den Fall, dass er das Arbeitsverhältnis nicht vertragsgemäß antritt oder das Arbeitsverhältnis vertragswidrig beendet, dem Arbeitgeber eine Vertragsstrafe in Höhe einer halben Bruttomonatsvergütung für einen Vertragsbruch bis zum Ende der Probezeit und einer Bruttomonatsvergütung nach dem Ende der Probezeit zu zahlen. Das Recht des Arbeitgebers, weitergehende Schadensersatzansprüche geltend zu machen, bleibt unberührt.
+</string>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_31">
+            <property name="font">
+             <font>
+              <family>Times New Roman,Times,serif</family>
+              <pointsize>-1</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>&lt;b&gt;&lt;u&gt;§ 11 Ausschlussfristen&lt;/b&gt;&lt;/u&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_35">
+            <property name="text">
+             <string>1. Alle beiderseitigen Ansprüche aus dem bestehenden Arbeitsverhältnis - mit Ausnahme von Ansprüchen, die aus der Verletzung des Lebens, des Körpers oder der Gesundheit sowie aus vorsätzlichen oder grob fahrlässigen Pflichtverletzungen des Arbeitgebers, seines gesetzlichen Vertreters oder Erfüllungsgehilfen resultieren - müssen innerhalb von drei Monaten, nachdem der jeweilige Gläubiger Kenntnis erlangt hat, oder hätte erlangen müssen, schriftlich geltend gemacht werden.
+2. Lehnt die Gegenseite den Anspruch schriftlich ab oder erklärt sie sich nicht innerhalb von einem Monat nach Geltendmachung des Anspruches, so verfällt dieser, wenn er nicht innerhalb von drei Monaten nach der Ablehnung oder dem Fristablauf gerichtlich geltend gemacht wird.
+</string>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_32">
+            <property name="font">
+             <font>
+              <family>Times New Roman,Times,serif</family>
+              <pointsize>-1</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>&lt;b&gt;&lt;u&gt;§ 12 Vertragsänderungen und Nebenabreden&lt;b&gt;&lt;u&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_36">
+            <property name="text">
+             <string>Mündliche Nebenabreden bestehen nicht. Änderungen und Ergänzungen dieses Vertrags bedürfen zu ihrer Wirksamkeit der Schriftform. Aus dem reinen einseitigen Verhalten des Arbeitgebers erwachsen dem Arbeitnehmer keine vertraglichen Rechtsansprüche, sofern nicht eine mündliche oder schriftliche einvernehmliche Vertragsänderung vorliegt (Ausschluss der betrieblichen Übung). Sollten einzelne Bestimmungen dieses Vertrages unwirksam sein oder werden, wird hierdurch die Wirksamkeit des Vertrages im Übrigen nicht berührt. Der Arbeitnehmer verpflichtet sich, dem Arbeitgeber unverzüglich über Veränderungen der persönlichen Verhältnisse wie Familienstand, Kinderzahl und Adresse Mitteilung zu machen.
+</string>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_33">
+            <property name="font">
+             <font>
+              <family>Times New Roman,Times,serif</family>
+              <pointsize>-1</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>&lt;b&gt;&lt;u&gt;§ 13 Schlussbestimmungen&lt;/b&gt;&lt;/u&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_37">
+            <property name="text">
+             <string>1. Die Unwirksamkeit einzelner Bestimmungen dieses Vertrages lässt die Wirksamkeit der übrigen Bestimmungen unberührt. Sollten einzelne Bestimmungen dieses Vertrages unwirksam sein, so verpflichten sich die Parteien, eine Regelung zu treffen, die dem Inhalt der vereinbarten möglichst nahekommt. 
+
+2. Mündliche Nebenabreden bestehen nicht. Änderungen und Ergänzungen dieses Vertrages bedürfen zu ihrer Wirksamkeit der Schriftform, sofern nicht eine individuelle mündliche Vereinbarung getroffen wurde. Auch eine wiederholte Gewährung von Leistungen oder Vergünstigungen begründet keinen Anspruch auf Gewährung in der Zukunft, sofern die Gewährung nicht auf einer individuellen Vereinbarung beruht. 
+</string>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_5">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="label_38">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string>Nürnberg, den </string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="EditableDate" name="DatePH_2" native="true">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>200</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_4">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_6">
+            <item>
+             <widget class="QLabel" name="label_39">
+              <property name="text">
+               <string>__________________________</string>
+              </property>
+              <property name="wordWrap">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>0</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_40">
+              <property name="text">
+               <string>__________________________</string>
+              </property>
+              <property name="wordWrap">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_8">
+            <item>
+             <widget class="QLabel" name="label_43">
+              <property name="minimumSize">
+               <size>
+                <width>200</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Arbeitgeber</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="wordWrap">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_3">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>0</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_44">
+              <property name="minimumSize">
+               <size>
+                <width>200</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Arbeitnehmer/-in</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="wordWrap">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <spacer name="verticalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>0</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="print">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>16</pointsize>
+        </font>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="text">
+        <string>Распечатать</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="cansel">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>16</pointsize>
+        </font>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="text">
+        <string>Отмена</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>EditableLine</class>
+   <extends>QWidget</extends>
+   <header location="global">EditableLine.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>EditableDate</class>
+   <extends>QWidget</extends>
+   <header>EditableDate.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>EditableSelection</class>
+   <extends>QWidget</extends>
+   <header>EditableSelection.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>scrollArea</tabstop>
+ </tabstops>
+ <resources>
+  <include location="assets/res.qrc"/>
+ </resources>
+ <connections/>
+</ui>

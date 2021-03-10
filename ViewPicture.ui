@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ViewPicture</class>
+ <widget class="QDialog" name="ViewPicture">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>480</width>
+    <height>640</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Просмотр Картинки</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="assets/res.qrc">
+    <normaloff>:/window-icons/img.png</normaloff>:/window-icons/img.png</iconset>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QLabel" name="Picture">
+       <property name="text">
+        <string>Picture</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="assets/res.qrc"/>
+ </resources>
+ <connections/>
+</ui>

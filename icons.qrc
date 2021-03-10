@@ -1,5 +1,12 @@
 <RCC>
     <qresource prefix="/icons">
         <file>assets/search.svg</file>
+        <file>assets/window icons/assistant.png</file>
+        <file>assets/window icons/bell.png</file>
+        <file>assets/window icons/calendar.png</file>
+        <file>assets/window icons/doc.png</file>
+        <file>assets/window icons/haus.png</file>
+        <file>assets/window icons/options.png</file>
+        <file>assets/window icons/person.png</file>
     </qresource>
 </RCC>
