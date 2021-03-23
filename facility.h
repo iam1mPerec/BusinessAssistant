@@ -35,6 +35,7 @@ public:
     void setFirm(const Firm Firm);
     void addDocument(class Document *NewDocument);
     void removeDocument(long long RemoveID);
+    void removeAllDocuments();
 
     QString getName() const;
     QString getOwner()   const;

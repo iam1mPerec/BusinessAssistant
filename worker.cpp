@@ -144,6 +144,7 @@ void Worker::removeDocument(long long RemoveID)
         if(item->getID() == RemoveID) {
             item->deleteScans();
             documents.removeOne(item);
+            delete item;
         }
     }
 }
@@ -153,6 +154,7 @@ void Worker::removeAllDocuments()
     for(auto item : documents) {
         item->deleteScans();
         documents.removeOne(item);
+        delete item;
     }
     QDir dir("documents/workers/worker #" + QString::number(ID));
     dir.removeRecursively();
@@ -163,6 +165,7 @@ void Worker::removeEvent(long long RemoveID)
     for(auto item : events) {
         if(item->getID() == RemoveID) {
             events.removeOne(item);
+            delete item;
         }
     }
 }
@@ -172,6 +175,7 @@ void Worker::removeSchedule(long long RemoveID)
     for(auto item : schedules) {
         if(item->getID() == RemoveID) {
             schedules.removeOne(item);
+            delete item;
         }
     }
 }

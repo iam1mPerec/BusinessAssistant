@@ -486,9 +486,11 @@ void MainWindow::on_removeFacility_clicked()
         return;
     }
 
-    for(int i = 0; i < facilities.count(); i++) {
-        if(facilities[i]->getID() == id) {
-            facilities.removeAt(i);
+    for(auto facility : facilities) {
+        if(facility->getID() == id) {
+            facilities.removeOne(facility);
+            facility->removeAllDocuments();
+            delete facility;
         }
     }
     ui->Facilities->removeSelectedItem();
@@ -526,12 +528,12 @@ void MainWindow::on_removeWorker_clicked()
         ui->firedCount->setText(QString::number(ui->WorkersFired->getVisibleItemsCount()));
     }
 
-    for(int i = 0; i < workers.count(); i++) {
-        if(workers[i]->getID() == id) {
-            auto worker = workers[i];
+    for(auto worker : workers) {
+        if(worker->getID() == id) {
             worker->removeAllDocuments();
             removePrivateEvents(worker);
-            workers.removeAt(i);
+            workers.removeOne(worker);
+            delete worker;
         }
     }
     saveWorkers();
@@ -547,10 +549,11 @@ void MainWindow::on_removeEvent_clicked()
         return;
     }
 
-    for(int i = 0; i < publicEvents.count(); i++) {
-        if(publicEvents[i]->getID() == id) {
-            publicEvents.removeAt(i);
+    for(auto event : publicEvents) {
+        if(event->getID() == id) {
+            publicEvents.removeOne(event);
             saveEvents();
+            delete event;
         }
     }
     for(int i = 0; i < privateEvents.count(); i++) {

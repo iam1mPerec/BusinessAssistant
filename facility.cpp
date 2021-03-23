@@ -68,8 +68,20 @@ void Facility::removeDocument(long long RemoveID)
         if(item->getID() == RemoveID) {
             item->deleteScans();
             documents.removeOne(item);
+            delete item;
         }
     }
+}
+
+void Facility::removeAllDocuments()
+{
+    for(auto item : documents) {
+        item->deleteScans();
+        documents.removeOne(item);
+        delete item;
+    }
+    QDir dir("documents/facilities/facility #" + QString::number(ID));
+    dir.removeRecursively();
 }
 
 QString Facility::getOwner() const {
@@ -148,6 +160,9 @@ const QList<Document*> &Facility::getDocuments() const
 }
 
 Facility::~Facility() {
+    for(auto document : documents) {
+        delete document;
+    }
 }
 
 QDataStream &operator <<(QDataStream &stream, const Facility &facility)
