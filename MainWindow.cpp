@@ -3,6 +3,7 @@
 #include <QDebug>
 #include <QDesktopWidget>
 #include <QCloseEvent>
+#include <QMessageBox>
 #include "MainWindow.h"
 #include "NewFacility.h"
 #include "ViewFacility.h"
@@ -425,7 +426,14 @@ void MainWindow::onDateSelected()
 }
 
 void MainWindow::closeEvent(QCloseEvent *event) {
-    m_safeToClose? event->accept() : event->ignore();
+    if(m_safeToClose) {
+        event->accept();
+    } else {
+        event->ignore();
+        QMessageBox msgBox;
+        msgBox.setText("Данные сохраняются. Пожалуйста не закрывайте программу");
+        msgBox.exec();
+    }
 }
 
 void MainWindow::onWorkerClicked(long long ID)
