@@ -50,10 +50,12 @@ private:
     QList<class Facility*> facilities;
     QList<class Event*>    publicEvents;
     QList<class Event*>    privateEvents;
+    bool m_safeToClose;
     class LinkedTablesObserver * linkedTablesObserver;
 
     void addPrivateEvents(Worker * Worker);
     void removePrivateEvents(Worker * Worker);
+    void closeEvent(QCloseEvent *event) override;
 
 private slots:
     void on_addFacility_clicked();

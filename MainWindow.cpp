@@ -2,6 +2,7 @@
 #include <QFileInfo>
 #include <QDebug>
 #include <QDesktopWidget>
+#include <QCloseEvent>
 #include "MainWindow.h"
 #include "NewFacility.h"
 #include "ViewFacility.h"
@@ -21,7 +22,6 @@
 #include "WorkerFormSelection.h"
 #include "FacilityTable.h"
 #include "Settings.h"
-
 const QString MainWindow::savePath = "save";
 
 using namespace std;
@@ -29,6 +29,7 @@ using namespace std;
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
+    m_safeToClose(true),
     linkedTablesObserver(nullptr)
 {
     ui->setupUi(this);
@@ -51,6 +52,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->WorkersFired->addObserver(linkedTablesObserver);
 
     QFile facilitiesFile(savePath + "/facilities.txt");
+    m_safeToClose = false;
     if(facilitiesFile.open(QIODevice::ReadOnly))
     {
         QDataStream out(&facilitiesFile);
@@ -111,6 +113,8 @@ MainWindow::MainWindow(QWidget *parent) :
     }
     eventsFile.close();
 
+    m_safeToClose = true;
+
     ui->CalendarWidget->setEvents(publicEvents);
     ui->CalendarWidget->addEvents(privateEvents);
 
@@ -132,6 +136,7 @@ void MainWindow::removePrivateEvents(Worker * Worker) {
 
 void MainWindow::saveFacilities()
 {
+    m_safeToClose = false;
     createDirectory(savePath);
     QFile file(savePath + "/facilities.txt");
     if(file.open(QIODevice::WriteOnly)) {
@@ -146,10 +151,12 @@ void MainWindow::saveFacilities()
     }
     file.flush();
     file.close();
+    m_safeToClose = true;
 }
 
 void MainWindow::saveWorkers()
 {
+    m_safeToClose = false;
     createDirectory(savePath);
     QFile file(savePath + "/workers.txt");
     if(file.open(QIODevice::WriteOnly)) {
@@ -165,10 +172,12 @@ void MainWindow::saveWorkers()
     }
     file.flush();
     file.close();
+    m_safeToClose = true;
 }
 
 void MainWindow::saveEvents()
 {
+    m_safeToClose = false;
     createDirectory(savePath);
     QFile file(savePath + "/events.txt");
     if(file.open(QIODevice::WriteOnly)) {
@@ -184,6 +193,7 @@ void MainWindow::saveEvents()
     }
     file.flush();
     file.close();
+    m_safeToClose = true;
 }
 
 void MainWindow::addFacility(Facility *NewFacility)
@@ -412,6 +422,10 @@ void MainWindow::onDateSelected()
     ui->canselEventsSearch->hide();
 
     sortSchedules();
+}
+
+void MainWindow::closeEvent(QCloseEvent *event) {
+    m_safeToClose? event->accept() : event->ignore();
 }
 
 void MainWindow::onWorkerClicked(long long ID)
