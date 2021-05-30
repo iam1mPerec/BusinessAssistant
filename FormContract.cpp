@@ -4,7 +4,6 @@
 #include "FormContract.h"
 #include "EditableWidget.h"
 #include "worker.h"
-#include "company.h"
 #include "statics.h"
 #include "Settings.h"
 #include "ui_FormContract.h"

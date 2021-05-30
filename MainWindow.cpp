@@ -31,10 +31,12 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
     m_safeToClose(true),
+    m_events_backed(false),
+    m_facilities_backed(false),
+    m_workers_backed(false),
     linkedTablesObserver(nullptr)
 {
     ui->setupUi(this);
-
     ui->canselFacilitiesSearch->hide();
     ui->canselWorkersSearch->hide();
     ui->canselEventsSearch->hide();
@@ -52,13 +54,17 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->WorkersOnVacation->addObserver(linkedTablesObserver);
     ui->WorkersFired->addObserver(linkedTablesObserver);
 
-    QFile facilitiesFile(savePath + "/facilities.txt");
+    createDirectory(savePath);
+    createDirectory(savePath + "/backup");
+
+    QFile facilitiesFile( choosePath("/facilities.txt", m_facilities_backed) );
     m_safeToClose = false;
     if(facilitiesFile.open(QIODevice::ReadOnly))
     {
         QDataStream out(&facilitiesFile);
         out.setVersion(QDataStream::Qt_5_9);
-
+        QDateTime timestamp;
+        out>>timestamp;
         int count;
         out>>count;
 
@@ -73,12 +79,13 @@ MainWindow::MainWindow(QWidget *parent) :
     }
     facilitiesFile.close();
 
-    QFile workersFile(savePath + "/workers.txt");
-    if(workersFile.open(QIODevice::ReadOnly)) {
-
+    QFile workersFile( choosePath("/workers.txt", m_workers_backed) );
+    if(workersFile.open(QIODevice::ReadOnly))
+    {
         QDataStream out(&workersFile);
         out.setVersion(QDataStream::Qt_5_9);
-
+        QDateTime timestamp;
+        out>>timestamp;
         int count;
         out>>count;
 
@@ -87,19 +94,20 @@ MainWindow::MainWindow(QWidget *parent) :
             out>>ID;
             Worker *worker = new Worker(ID);
             out>>*worker;
-
             addWorker(worker);
         }
 
     }
     workersFile.close();
 
-    QFile eventsFile(savePath + "/events.txt");
-    if(eventsFile.open(QIODevice::ReadOnly)) {
+    QFile eventsFile( choosePath("/events.txt", m_events_backed) );
+    if(eventsFile.open(QIODevice::ReadOnly))
+    {
 
         QDataStream out(&eventsFile);
         out.setVersion(QDataStream::Qt_5_9);
-
+        QDateTime timestamp;
+        out>>timestamp;
         int count;
         out>>count;
 
@@ -138,17 +146,18 @@ void MainWindow::removePrivateEvents(Worker * Worker) {
 void MainWindow::saveFacilities()
 {
     m_safeToClose = false;
-    createDirectory(savePath);
-    QFile file(savePath + "/facilities.txt");
+    QFile file;
+    m_facilities_backed? file.setFileName(savePath + "/facilities.txt") : file.setFileName(savePath + "/backup/facilities.txt");
     if(file.open(QIODevice::WriteOnly)) {
         QDataStream in(&file);
         in.setVersion(QDataStream::Qt_5_9);
-
+        in<<QDateTime::currentDateTime();
         in << facilities.count();    
         for(auto facility : facilities) {
             in << facility->getID();
             in << *facility;
         }
+        m_facilities_backed = !m_facilities_backed;
     }
     file.flush();
     file.close();
@@ -158,18 +167,19 @@ void MainWindow::saveFacilities()
 void MainWindow::saveWorkers()
 {
     m_safeToClose = false;
-    createDirectory(savePath);
-    QFile file(savePath + "/workers.txt");
+    QFile file;
+    m_workers_backed? file.setFileName(savePath + "/workers.txt") : file.setFileName(savePath + "/backup/workers.txt");
     if(file.open(QIODevice::WriteOnly)) {
 
         QDataStream in(&file);
         in.setVersion(QDataStream::Qt_5_9);
-
+        in<<QDateTime::currentDateTime();
         in << workers.count();
         for(auto worker : workers) {
             in << worker->getID();
             in << *worker;
         }
+        m_workers_backed = !m_workers_backed;
     }
     file.flush();
     file.close();
@@ -179,18 +189,19 @@ void MainWindow::saveWorkers()
 void MainWindow::saveEvents()
 {
     m_safeToClose = false;
-    createDirectory(savePath);
-    QFile file(savePath + "/events.txt");
+    QFile file;
+    m_events_backed? file.setFileName(savePath + "/events.txt") : file.setFileName(savePath + "/backup/events.txt");
     if(file.open(QIODevice::WriteOnly)) {
 
         QDataStream in(&file);
         in.setVersion(QDataStream::Qt_5_9);
-
+        in << QDateTime::currentDateTime();
         in << publicEvents.count();
         for(auto event : publicEvents) {
             in << event->getID();
             in << *event;
         }
+        m_events_backed = !m_events_backed;
     }
     file.flush();
     file.close();
@@ -230,6 +241,54 @@ void MainWindow::addPublicEvent(Event *NewEvent)
     ui->Events->addItem(newEvent);
     ui->eventCount->setText(QString::number(ui->Events->getVisibleItemsCount()));
     ui->Events->sortByExpiration();
+}
+
+QString MainWindow::choosePath(const QString Path, bool &backed) const {
+    QString result = backed? Path + "/backup" : Path;
+    backed = !backed;
+    QDateTime timeStamp, timeStampBacked;
+    bool timestampPresent = false, timestampBackupPresent = false;
+
+    QFile file(savePath + Path);
+    if(file.open(QIODevice::ReadOnly)) {
+        QDataStream out(&file);
+        out.setVersion(QDataStream::Qt_5_9);
+        out>>timeStamp;
+        timestampPresent = true;
+    }
+    else {
+        QMessageBox msgBox;
+        QString msg = "Данные в " + Path + " были повреждены. Обратитесь к Разработчику";
+        msgBox.setText(msg);
+        msgBox.exec();
+    }
+
+    QFile fileBackup(savePath + "/backup" + Path);
+    if(fileBackup.open(QIODevice::ReadOnly)) {
+        QDataStream out(&fileBackup);
+        out.setVersion(QDataStream::Qt_5_9);
+        out>>timeStampBacked;
+        timestampBackupPresent = true;
+    }
+    else {
+        QMessageBox msgBox;
+        QString msg = "Данные в " + Path + "/backup были повреждены. Обратитесь к Разработчику";
+        msgBox.setText(msg);
+        msgBox.exec();
+    }
+
+    file.close();
+    fileBackup.close();
+
+    if((timestampPresent && !timestampBackupPresent) || timeStamp > timeStampBacked) {
+        backed = false;
+        return savePath + Path;
+    }
+    else if((!timestampPresent && timestampBackupPresent) || timeStamp < timeStampBacked) {
+        backed = true;
+        return savePath + "/backup" +Path;
+    }
+    else return "";
 }
 
 void MainWindow::addPrivateEvents(Worker * Worker) {

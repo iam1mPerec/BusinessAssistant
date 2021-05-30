@@ -51,8 +51,13 @@ private:
     QList<class Event*>    publicEvents;
     QList<class Event*>    privateEvents;
     bool m_safeToClose;
+    bool m_events_backed;
+    bool m_facilities_backed;
+    bool m_workers_backed;
     class LinkedTablesObserver * linkedTablesObserver;
 
+    QString choosePath(const QString Path, bool &backed) const;
+    QDate getTimestamp(const QString Path)const;
     void addPrivateEvents(Worker * Worker);
     void removePrivateEvents(Worker * Worker);
     void closeEvent(QCloseEvent *event) override;

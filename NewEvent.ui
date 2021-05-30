@@ -419,6 +419,10 @@
   <tabstop>FromDay</tabstop>
   <tabstop>FromMonth</tabstop>
   <tabstop>FromYear</tabstop>
+  <tabstop>UntilDay</tabstop>
+  <tabstop>UntilMonth</tabstop>
+  <tabstop>UntilYear</tabstop>
+  <tabstop>isRecurring</tabstop>
   <tabstop>Description</tabstop>
  </tabstops>
  <resources>

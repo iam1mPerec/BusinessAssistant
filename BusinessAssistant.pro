@@ -81,7 +81,6 @@ SOURCES += \
     WorkerFormSelection.cpp \
     HoverableLabel.cpp \
     FormContract.cpp \
-    company.cpp \
     FormSchedule.cpp \
     FormFiring.cpp \
     FormEditing.cpp \
@@ -156,7 +155,6 @@ HEADERS += \
     WorkerFormSelection.h \
     HoverableLabel.h \
     FormContract.h \
-    company.h \
     FormSchedule.h \
     FormFiring.h \
     FormEditing.h \
