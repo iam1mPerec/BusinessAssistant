@@ -21,6 +21,7 @@ private:
 
 public:
     Document(long long ParentID, QString ParentType);
+    Document (const Document& anotherDoc);
     Document(long long ParentID, QString ParentType, long long PresetID, long long PresetScansID);
 
     void setName(QString NewName);

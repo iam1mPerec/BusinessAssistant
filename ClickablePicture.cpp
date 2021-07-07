@@ -20,7 +20,7 @@ QString ClickablePicture::getPath() const
     return path;
 }
 
-void ClickablePicture::mousePressEvent(QMouseEvent* event)
+void ClickablePicture::mousePressEvent(QMouseEvent*)
 {
     if(!path.isEmpty()) {
         ViewPicture window(path, this);

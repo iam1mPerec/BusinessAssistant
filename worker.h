@@ -2,7 +2,7 @@
 #define WORKER_H
 
 #include <QString>
-#include <QList>
+#include <list>
 #include <QDate>
 #include "EnumStates.h"
 #include "EnumMaritalStatus.h"
@@ -61,6 +61,7 @@ public:
     void addDocument(class Document *NewDocument);
     void addEvent(class Event *NewEvent);
     void addSchedule(class Schedule *NewSchedule);
+    void removeScans(long long RemoveID);
     void removeDocument(long long RemoveID);
     void removeAllDocuments();
     void removeEvent(long long RemoveID);
@@ -105,6 +106,9 @@ public:
     const QList<class Schedule*> &getSchedules() const;
 
     ~Worker();
+
+    friend QDataStream &operator <<(QDataStream &stream, const Worker &myclass);
+    friend QDataStream &operator >>(QDataStream &stream, Worker &myclass);
 };
 
 QDataStream &operator <<(QDataStream &stream, const Worker &myclass);

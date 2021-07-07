@@ -20,6 +20,19 @@ Document::Document(long long ParentID, QString ParentType) :
     this->ExpirationDate = new QDate();
 }
 
+Document::Document(const Document &anotherDoc) :
+    name(anotherDoc.name),
+    parentType(anotherDoc.parentType),
+    scans(anotherDoc.scans),
+    path(anotherDoc.path),
+    parentID(anotherDoc.parentID),
+    ID(anotherDoc.ID),
+    scansID(anotherDoc.scansID)
+
+{
+    ExpirationDate = new QDate(*anotherDoc.ExpirationDate);
+}
+
 Document::Document(long long ParentID, QString ParentType, long long PresetID, long long PresetScansID) :
     parentType(ParentType),
     ExpirationDate(nullptr),
@@ -101,16 +114,16 @@ void Document::refactorScans(QList<QString> Scans) {
         else {
             qDebug("Something wierd happened in document.h in refactorScans() function");
         }
-        path += "/" + DocType +" #" + QString::number(parentID);
+        path += "/" + DocType +"#" + QString::number(parentID);
         createDirectory(path);
 
-        path += "/doc #" + QString::number(ID);
+        path += "/doc#" + QString::number(ID);
         createDirectory(path);
     }
 
     for(auto scan : Scans) {
         qDebug()<< "Scan:" <<scan;
-        QString FilePath = path + "/" + name + " #" +  QString::number(++scansID) + getExstension(scan);
+        QString FilePath = path + "/" + name + "#" +  QString::number(++scansID) + getExstension(scan);
         qDebug()<< "Path:" <<FilePath;
         QFile::copy(scan, FilePath);
         scans.push_back(FilePath);
@@ -172,7 +185,7 @@ QList<QString> Document::copyTemp() const
     int tempID = 0;
 
     for(auto scan : scans) {
-        QString FilePath = "temp/file #" + QString::number(++tempID) + getExstension(scan);
+        QString FilePath = "temp/file#" + QString::number(++tempID) + getExstension(scan);
         bool result = QFile::copy(scan, FilePath);
         qDebug()<<FilePath << result;
         tempList.push_back(FilePath);

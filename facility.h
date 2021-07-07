@@ -51,6 +51,9 @@ public:
 
     QDate getClosestExpirationDate() const;
 
+    friend QDataStream &operator <<(QDataStream &stream, const Facility &myclass);
+    friend QDataStream &operator >>(QDataStream &stream, Facility &myclass);
+
     ~Facility();
 };
 

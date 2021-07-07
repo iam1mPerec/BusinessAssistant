@@ -138,11 +138,19 @@ void Worker::addSchedule(Schedule *NewSchedule)
     schedules.push_back(NewSchedule);
 }
 
-void Worker::removeDocument(long long RemoveID)
+void Worker::removeScans(long long RemoveID)
 {
     for(auto item : documents) {
         if(item->getID() == RemoveID) {
             item->deleteScans();
+        }
+    }
+}
+
+void Worker::removeDocument(long long RemoveID)
+{
+    for(auto item : documents) {
+        if(item->getID() == RemoveID) {
             documents.removeOne(item);
             delete item;
         }
@@ -440,6 +448,7 @@ Worker::~Worker()
 
 QDataStream &operator <<(QDataStream &stream, const Worker &worker)
 {
+    stream << worker.getID();
     stream << worker.getName();
     stream << worker.getSurName();
     stream << worker.getBirthName();
@@ -482,6 +491,11 @@ QDataStream &operator >>(QDataStream &stream, Worker &worker)
 {
     QString TempString;
     QDate   TempDate;
+
+    long long ID;
+    stream >> ID;
+    worker.ID = ID;
+    Worker::count = std::max(ID, Worker::count);
 
     stream >> TempString;
     worker.setName(TempString);

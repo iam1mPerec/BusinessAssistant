@@ -16,6 +16,7 @@ class Event
 
 public:
     Event();
+    Event ( const Event& ) = default;
     Event(long long PresetID);
 
     void setBeginsOn(const QDate &value);

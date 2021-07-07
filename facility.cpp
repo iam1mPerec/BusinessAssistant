@@ -167,6 +167,7 @@ Facility::~Facility() {
 
 QDataStream &operator <<(QDataStream &stream, const Facility &facility)
 {
+    stream<<facility.getID();
     stream<<facility.getName();
     stream<<facility.getOwner();
     stream<<facility.getAddress();
@@ -188,6 +189,12 @@ QDataStream &operator <<(QDataStream &stream, const Facility &facility)
 
 QDataStream &operator >>(QDataStream &stream, Facility &facility)
 {
+    long long ID;
+    stream>>ID;
+    facility.ID = ID;
+
+    Facility::count = std::max(ID, Facility::count);
+
     QString NAME;
     stream>>NAME;
     facility.setName(NAME);

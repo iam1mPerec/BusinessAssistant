@@ -137,6 +137,7 @@ void ViewWorker::on_cansel_clicked()
 void ViewWorker::on_removeDocument_clicked()
 {
     long long id = ui->Documents->getSelectedItemID();
+    worker->removeScans(id);
     removeDocument(id);
 }
 
@@ -167,8 +168,9 @@ void ViewWorker::viewSchedule(long long ID)
                 window.setModal(true);
                 window.exec();
                 if(window.result()) {
+                    auto scheduleCopy = new Schedule(*schedule);
                     removeSchedule(ID);
-                    addSchedule(schedule);
+                    addSchedule(scheduleCopy);
                 }
                 break;
             }
@@ -193,8 +195,9 @@ void ViewWorker::viewEvent(long long ID)
                 ViewEvent window(event, this);
                 window.setModal(true);
                 window.exec();
+                auto eventCopy = new Event(*event);
                 removeEvent(ID);
-                addEvent(event);
+                addEvent(eventCopy);
                 break;
             }
         }
@@ -218,8 +221,9 @@ void ViewWorker::viewDocument(long long ID)
                 ViewDocument window(document, this);
                 window.setModal(true);
                 window.exec();
+                auto documentCopy = new Document(*document);
                 removeDocument(ID);
-                addDocument(document);
+                addDocument(documentCopy);
                 break;
             }
         }
@@ -339,16 +343,13 @@ void ViewWorker::removeDocument(const long long ID)
 {
     worker->removeDocument(ID);
     ui->Documents->removeItemByID(ID);
-    ui->Documents->repaint();
 }
 
 void ViewWorker::removeEvent(const long long ID)
 {
     worker->removeEvent(ID);
     ui->Events->removeItemByID(ID);
-    ui->Events->repaint();
     ui->CalendarWidget->setEvents(worker->getEvents());
-    ui->CalendarWidget->setUpEvents();
 }
 
 void ViewWorker::removeSchedule(long long ID)
