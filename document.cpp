@@ -62,6 +62,22 @@ QString Document::getPath() const
     return path;
 }
 
+QString Document::getDocType(QString Type) const
+{
+    if(parentType == "facilities")
+    {
+        return "facility";
+    }
+    else if(parentType == "workers")
+    {
+         return "worker";
+    }
+    else {
+        qDebug("Something wierd happened in document.h in refactorScans() function");
+        return "";
+    }
+}
+
 void Document::setPath(const QString &value)
 {
     path = value;
@@ -89,7 +105,7 @@ void Document::copyScans(QList<QString> NewScans)
 }
 
 void Document::deleteScans() {
-    QDir dir(path);
+    QDir dir(mainPath + "/" + parentType + "/" + getDocType(parentType) + "#" + QString::number(parentID));
     dir.removeRecursively();
     path.clear();
     scans.clear();
@@ -102,19 +118,7 @@ void Document::refactorScans(QList<QString> Scans) {
         path = mainPath + "/" + parentType;
         createDirectory(path);
 
-        QString DocType = "";
-        if(parentType == "facilities")
-        {
-            DocType = "facility";
-        }
-        else if(parentType == "workers")
-        {
-            DocType = "worker";
-        }
-        else {
-            qDebug("Something wierd happened in document.h in refactorScans() function");
-        }
-        path += "/" + DocType +"#" + QString::number(parentID);
+        path += "/" + getDocType(parentType) + "#" + QString::number(parentID);
         createDirectory(path);
 
         path += "/doc#" + QString::number(ID);

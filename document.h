@@ -39,6 +39,7 @@ public:
     QString getName()               const;
     QDate getExpirationDate()       const;
     QString getPath()               const;
+    QString getDocType(QString Type) const;
     long long getID()               const;
     long long getScansID()          const;
     QList<QString> getScans()       const;
