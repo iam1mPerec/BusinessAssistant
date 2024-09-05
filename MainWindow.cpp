@@ -69,9 +69,7 @@ MainWindow::MainWindow(QWidget *parent) :
         out>>count;
 
         for(int i = 0; i < count; i++) {
-            long long ID;
-            out>>ID;
-            Facility *facility = new Facility(ID);
+            Facility *facility = new Facility;
             out>>*facility;
             addFacility(facility);
         }
@@ -90,9 +88,7 @@ MainWindow::MainWindow(QWidget *parent) :
         out>>count;
 
         for(int i = 0; i < count; i++) {
-            long long ID;
-            out>>ID;
-            Worker *worker = new Worker(ID);
+            Worker *worker = new Worker;
             out>>*worker;
             addWorker(worker);
         }
@@ -154,7 +150,6 @@ void MainWindow::saveFacilities()
         in<<QDateTime::currentDateTime();
         in << facilities.count();    
         for(auto facility : facilities) {
-            in << facility->getID();
             in << *facility;
         }
         m_facilities_backed = !m_facilities_backed;
@@ -176,7 +171,6 @@ void MainWindow::saveWorkers()
         in<<QDateTime::currentDateTime();
         in << workers.count();
         for(auto worker : workers) {
-            in << worker->getID();
             in << *worker;
         }
         m_workers_backed = !m_workers_backed;

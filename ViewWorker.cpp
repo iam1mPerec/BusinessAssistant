@@ -77,7 +77,7 @@ ViewWorker::ViewWorker(Worker *Worker, const QList<class Facility*> &Facilities,
     }
 
     for(auto document : worker->getDocuments()) {
-        CustomListitem *newDocument = new CustomListitem(document->getName(),document->getID(), document->getExpirationDate(),this);
+        CustomListitem *newDocument = new CustomListitem(document->getName() + "-" + document->getExpirationDate().toString("dd.MM.yyyy"),document->getID(), document->getExpirationDate(), this);
         connect(newDocument, SIGNAL(doubleClicked(long long)), this, SLOT(viewDocument(long long)));
         newDocument->compareWithDate(QDate::currentDate(), ui->Documents->getErgentToTop());
         ui->Documents->addItem(newDocument);
@@ -316,7 +316,7 @@ void ViewWorker::on_work_rest_calculated(const int WorkDays, const int RestDays)
 void ViewWorker::addDocument(Document* NewDocument)
 {
     worker->addDocument(NewDocument);
-    CustomListitem* Document = new CustomListitem(NewDocument->getName(), NewDocument->getID(), NewDocument->getExpirationDate(), this);
+    CustomListitem* Document = new CustomListitem(NewDocument->getName() + "-" + NewDocument->getExpirationDate().toString("dd.MM.yyyy"), NewDocument->getID(), NewDocument->getExpirationDate(), this);
     connect(Document, SIGNAL(doubleClicked(long long)), this, SLOT(viewDocument(long long)));
     ui->Documents->addItem(Document);
     Document->compareWithDate(QDate::currentDate(), ui->Documents->getErgentToTop());
