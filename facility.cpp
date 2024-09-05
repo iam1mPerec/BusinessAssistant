@@ -1,5 +1,6 @@
 #include <QDir>
 #include <QDataStream>
+#include <QDebug>
 #include "facility.h"
 #include "worker.h"
 #include "document.h"
